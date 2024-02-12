@@ -1,0 +1,118 @@
+/*
+ * Copyright (c) 2021 Rafael Yumagulov
+ *
+ * SPDX-License-Identifier: MIT
+ */
+
+#include <behaviors.dtsi>
+#include <dt-bindings/zmk/keys.h>
+
+#define DEF 0
+#define LWR 1
+#define RSE 2
+#define ADJ 3
+
+&lt { quick_tap_ms = <200>; };
+
+&mt {
+    quick_tap_ms = <200>;
+    tapping-term-ms = <150>;
+    flavor = "hold-preferred";
+};
+
+/ {
+    chosen {
+        zmk,matrix_transform = &default_transform;
+
+        // zmk,matrix_transform = &extra_keys_transform;
+    };
+};
+
+/ {
+    combos {
+        compatible = "zmk,combos";
+
+        LANG {
+            bindings = <&kp LC(L)>;
+            key-positions = <12>;
+            layers = <0>;
+        };
+    };
+
+    behaviors {
+        copy_cut: copy_cut {
+            compatible = "zmk,behavior-tap-dance";
+            label = "COPY_CUT";
+            #binding-cells = <0>;
+            bindings = <&kp LG(C)>, <&kp LG(X)>;
+        };
+
+        home_row: home_row {
+            compatible = "zmk,behavior-hold-tap";
+            label = "HOME_ROW";
+            bindings = <&kp>, <&kp>;
+
+            #binding-cells = <2>;
+            tapping-term-ms = <280>;
+            quick-tap-ms = <125>;
+            flavor = "balanced";
+            hold-trigger-key-positions = <16 15 14 13 19 20 21 22>;
+        };
+
+        comma_less: comma_less {
+            compatible = "zmk,behavior-tap-dance";
+            label = "COMMA_LESS";
+            #binding-cells = <0>;
+            bindings = <&kp COMMA>, <&kp LS(COMMA)>;
+
+            tapping-term-ms = <150>;
+        };
+
+        dot_great: dot_great {
+            compatible = "zmk,behavior-tap-dance";
+            label = "DOT_GREAT";
+            #binding-cells = <0>;
+            bindings = <&kp DOT>, <&kp LS(DOT)>;
+
+            tapping-term-ms = <150>;
+        };
+
+        tap_dance: tap_dance {
+            compatible = "zmk,behavior-tap-dance";
+            label = "TAP_DANCE";
+            #binding-cells = <0>;
+            bindings = <&none>, <&none>;
+        };
+    };
+
+    keymap {
+        compatible = "zmk,keymap";
+
+        BASE {
+            bindings = <
+  &kp ESCAPE     &kp Q  &kp W  &kp E             &kp R           &kp T          &kp Y            &kp U            &kp I      &kp O                      &kp P     &kp LEFT_BRACKET
+  &none          &kp A  &kp S  &kp D             &kp F           &kp G          &kp H            &kp J            &kp K      &home_row RIGHT_CONTROL L  &kp SEMI  &kp SQT
+  &kp LA(LG(I))  &kp Z  &kp X  &kp C             &kp V           &kp B          &kp N            &kp M            &kp COMMA  &kp DOT                    &kp FSLH  &kp RIGHT_ALT
+                               &kp LEFT_COMMAND  &mt LSHIFT RET  &lt 1 SPACE    &lt 2 BACKSPACE  &kp RIGHT_SHIFT  &kp TAB
+            >;
+        };
+
+        NAV {
+            bindings = <
+  &trans  &none  &trans  &kp LG(UP)  &trans     &trans       &none           &kp LG(LEFT_ARROW)  &none         &kp LG(RIGHT_ARROW)  &none  &none
+  &none   &none  &trans  &trans      &trans     &trans       &kp LEFT_ARROW  &kp DOWN_ARROW      &kp UP_ARROW  &kp RIGHT_ARROW      &none  &none
+  &none   &none  &none   &kp LG(N2)  &kp LG(V)  &copy_cut    &kp GRAVE       &comma_less         &dot_great    &trans               &none  &none
+                         &none       &kp LG(Z)  &none        &kp LEFT_ALT    &none               &none
+            >;
+        };
+
+        NUM {
+            bindings = <
+  &trans  &none  &mt LS(N7) N7        &mt LS(N8) N8  &mt LS(N9) N9  &mt LS(MINUS) MINUS    &none  &kp LEFT_PARENTHESIS  &kp RIGHT_PARENTHESIS  &none  &none  &none
+  &none   &none  &mt LS(N4) NUMBER_4  &mt LS(N5) N5  &mt LS(N6) N6  &mt LS(EQUAL) EQUAL    &none  &kp LEFT_BRACKET      &kp RIGHT_BRACKET      &none  &none  &none
+  &none   &none  &mt LS(N1) NUMBER_1  &mt LS(N2) N2  &mt LS(N3) N3  &kp PIPE               &none  &kp LEFT_BRACE        &kp RIGHT_BRACE        &none  &none  &none
+                                      &none          &mt LS(N0) N0  &none                  &none  &none                 &none
+            >;
+        };
+    };
+};
