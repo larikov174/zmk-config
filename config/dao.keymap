@@ -83,13 +83,6 @@
             #binding-cells = <0>;
             bindings = <&none>, <&none>;
         };
-
-        soft_off: soft_off {
-            compatible = "zmk,behavior-soft-off";
-            label = "SOFT_OFF";
-            #binding-cells = <0>;
-            hold-time-ms = <1000>;
-        };
     };
 
     keymap {
