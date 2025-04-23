@@ -29,15 +29,7 @@
 };
 
 / {
-    combos {
-        compatible = "zmk,combos";
-
-        LANG {
-            bindings = <&kp LC(L)>;
-            key-positions = <12>;
-            layers = <0>;
-        };
-    };
+    combos { compatible = "zmk,combos"; };
 
     behaviors {
         copy_cut: copy_cut {
@@ -90,10 +82,10 @@
 
         BASE {
             bindings = <
-&soft_off       &kp Q  &kp W    &kp E                    &kp R             &kp T        &kp Y            &kp U             &kp I      &kp O    &kp P     &kp LEFT_BRACKET
-&none           &kp A  &lt 3 S  &kp D                    &kp F             &kp G        &kp H            &kp J             &kp K      &kp L    &kp SEMI  &kp SQT
-&kp LEFT_SHIFT  &kp Z  &kp X    &kp C                    &kp V             &kp B        &kp N            &kp M             &kp COMMA  &kp DOT  &kp FSLH  &kp LEFT_ALT
-                                &mt LEFT_CONTROL ESCAPE  &kp LEFT_COMMAND  &lt 1 SPACE  &lt 2 BACKSPACE  &mt LSHIFT ENTER  &kp TAB
+&soft_off  &kp Q         &kp W    &kp E                    &kp R             &kp T        &kp Y            &kp U             &kp I      &kp O    &kp P     &kp LEFT_BRACKET
+&none      &kp A         &lt 3 S  &kp D                    &kp F             &kp G        &kp H            &kp J             &kp K      &kp L    &kp SEMI  &kp SQT
+&none      &mt LSHIFT Z  &kp X    &kp C                    &kp V             &kp B        &kp N            &kp M             &kp COMMA  &kp DOT  &kp FSLH  &kp LEFT_ALT
+                                  &mt LEFT_CONTROL ESCAPE  &kp LEFT_COMMAND  &lt 1 SPACE  &lt 2 BACKSPACE  &mt LSHIFT ENTER  &kp TAB
             >;
         };
 
@@ -115,12 +107,12 @@
             >;
         };
 
-        MOUSE {
+        OTHER {
             bindings = <
-&none  &none  &none  &kp PAGE_UP    &none  &none  &none  &none  &none  &none  &none  &none
-&none  &none  &none  &kp PAGE_DOWN  &none  &none  &none  &none  &none  &none  &none  &none
-&none  &none  &none  &none          &none  &none  &none  &none  &none  &none  &none  &none
-                     &none          &none  &none  &none  &none  &none
+&none  &none  &none  &kp PAGE_UP    &kp LS(LC(LG(NUMBER_4)))  &kp LS(LG(NUMBER_4))  &none  &none  &none  &none  &none  &none
+&none  &none  &none  &kp PAGE_DOWN  &kp LG(Z)                 &none                 &none  &none  &none  &none  &none  &none
+&none  &none  &none  &none          &none                     &none                 &none  &none  &none  &none  &none  &none
+                     &none          &none                     &none                 &none  &none  &none
             >;
         };
     };
