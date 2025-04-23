@@ -6,6 +6,7 @@
 
 #include <behaviors.dtsi>
 #include <dt-bindings/zmk/keys.h>
+#include <dt-bindings/zmk/pointing.h>
 
 #define DEF 0
 #define LWR 1
@@ -90,10 +91,10 @@
 
         BASE {
             bindings = <
-&soft_off       &kp Q  &kp W  &kp E                    &kp R             &kp T        &kp Y            &kp U             &kp I      &kp O    &kp P     &kp LEFT_BRACKET
-&none           &kp A  &kp S  &kp D                    &kp F             &kp G        &kp H            &kp J             &kp K      &kp L    &kp SEMI  &kp SQT
-&kp LEFT_SHIFT  &kp Z  &kp X  &kp C                    &kp V             &kp B        &kp N            &kp M             &kp COMMA  &kp DOT  &kp FSLH  &kp LEFT_ALT
-                              &mt LEFT_CONTROL ESCAPE  &kp LEFT_COMMAND  &lt 1 SPACE  &lt 2 BACKSPACE  &mt LSHIFT ENTER  &kp TAB
+&soft_off       &kp Q  &kp W    &kp E                    &kp R             &kp T        &kp Y            &kp U             &kp I      &kp O    &kp P     &kp LEFT_BRACKET
+&none           &kp A  &lt 3 S  &kp D                    &kp F             &kp G        &kp H            &kp J             &kp K      &kp L    &kp SEMI  &kp SQT
+&kp LEFT_SHIFT  &kp Z  &kp X    &kp C                    &kp V             &kp B        &kp N            &kp M             &kp COMMA  &kp DOT  &kp FSLH  &kp LEFT_ALT
+                                &mt LEFT_CONTROL ESCAPE  &kp LEFT_COMMAND  &lt 1 SPACE  &lt 2 BACKSPACE  &mt LSHIFT ENTER  &kp TAB
             >;
         };
 
@@ -108,10 +109,19 @@
 
         NUM {
             bindings = <
-&none  &none  &mt LS(N7) N7        &mt LS(N8) N8  &mt LS(N9) N9  &mt LS(MINUS) MINUS  &none  &kp LEFT_PARENTHESIS  &kp RIGHT_PARENTHESIS  &none  &none  &none
-&none  &none  &mt LS(N4) NUMBER_4  &mt LS(N5) N5  &mt LS(N6) N6  &mt LS(EQUAL) EQUAL  &none  &kp LEFT_BRACE        &kp RIGHT_BRACE        &none  &none  &none
-&none  &none  &mt LS(N1) NUMBER_1  &mt LS(N2) N2  &mt LS(N3) N3  &kp PIPE             &none  &kp LEFT_BRACKET      &kp RIGHT_BRACKET      &none  &none  &none
-                                   &none          &mt LS(N0) N0  &none                &none  &none                 &none
+&none  &none  &mt LS(N7) N7        &mt LS(N8) N8  &mt LS(N9) N9  &mt LS(MINUS) MINUS  &kp C_VOLUME_UP    &kp LEFT_PARENTHESIS  &kp RIGHT_PARENTHESIS  &none  &none  &none
+&none  &none  &mt LS(N4) NUMBER_4  &mt LS(N5) N5  &mt LS(N6) N6  &mt LS(EQUAL) EQUAL  &kp C_VOLUME_DOWN  &kp LEFT_BRACE        &kp RIGHT_BRACE        &none  &none  &none
+&none  &none  &mt LS(N1) NUMBER_1  &mt LS(N2) N2  &mt LS(N3) N3  &kp PIPE             &none              &kp LEFT_BRACKET      &kp RIGHT_BRACKET      &none  &none  &none
+                                   &none          &mt LS(N0) N0  &kp LEFT_COMMAND     &none              &none                 &none
+            >;
+        };
+
+        MOUSE {
+            bindings = <
+&none  &none  &none  &msc SCRL_UP    &none  &none  &none  &none  &none  &none  &none  &none
+&none  &none  &none  &msc SCRL_DOWN  &none  &none  &none  &none  &none  &none  &none  &none
+&none  &none  &none  &none           &none  &none  &none  &none  &none  &none  &none  &none
+                     &none           &none  &none  &none  &none  &none
             >;
         };
     };
