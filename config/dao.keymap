@@ -60,11 +60,18 @@
     };
 
     macros {
-        comma_space: comma_space {
+        comma_ru: comma_space {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
             bindings = <&kp KP_DOT &kp SPACE>;
             label = "COMMA_SPACE";
+        };
+
+        dot_ru: dot_ru {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&kp LS(KP_DOT) &kp SPACE>;
+            label = "DOT_RU";
         };
     };
 
@@ -84,7 +91,7 @@
             bindings = <
 &none  &none  &none  &none           &none         &none  &none                   &kp LG(LEFT_ARROW)  &kp LG(UP_ARROW)  &kp LG(RIGHT_ARROW)  &none  &none
 &none  &none  &none  &kp LEFT_SHIFT  &kp LEFT_ALT  &none  &kp LEFT_ARROW          &kp DOWN_ARROW      &kp UP_ARROW      &kp RIGHT_ARROW      &none  &none
-&none  &none  &none  &none           &none         &none  &kp GRAVE               &none               &comma_space      &kp LS(KP_DOT)       &none  &none
+&none  &none  &none  &none           &none         &none  &kp GRAVE               &none               &comma_ru         &dot_ru              &none  &none
                      &none           &none         &none  &mt LEFT_COMMAND LC(L)  &none               &none
             >;
         };
