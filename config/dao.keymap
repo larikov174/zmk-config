@@ -45,10 +45,10 @@
             bindings = <&kp>, <&kp>;
 
             #binding-cells = <2>;
-            tapping-term-ms = <250>;
+            tapping-term-ms = <350>;
             quick-tap-ms = <(-1)>;
             flavor = "tap-preferred";
-            hold-trigger-key-positions = <16 15 14 13 19 20 21 22>;
+            require-prior-idle-ms = <(-1)>;
         };
 
         tap_dance: tap_dance {
@@ -80,10 +80,10 @@
 
         BASE {
             bindings = <
-&kp LA(LG(I))  &kp Q  &kp W    &kp E                    &kp R             &kp T        &kp Y            &kp U           &kp I             &kp O    &kp P     &none
-&none          &kp A  &lt 3 S  &mt LEFT_SHIFT D         &mt LEFT_ALT F    &kp G        &kp H            &mt LEFT_ALT J  &mt LEFT_SHIFT K  &kp L    &kp SEMI  &none
-&none          &kp Z  &kp X    &kp C                    &kp V             &kp B        &kp N            &kp M           &kp COMMA         &kp DOT  &kp FSLH  &none
-                               &mt LEFT_CONTROL ESCAPE  &kp LEFT_COMMAND  &lt 1 SPACE  &lt 2 BACKSPACE  &kp ENTER       &kp TAB
+&kp LA(LG(I))  &kp Q  &kp W    &kp E                    &kp R                 &kp T        &kp Y            &kp U                 &kp I                   &kp O    &kp P     &none
+&none          &kp A  &lt 3 S  &home_row LEFT_SHIFT D   &home_row LEFT_ALT F  &kp G        &kp H            &home_row LEFT_ALT J  &home_row LEFT_SHIFT K  &kp L    &kp SEMI  &none
+&none          &kp Z  &kp X    &kp C                    &kp V                 &kp B        &kp N            &kp M                 &kp COMMA               &kp DOT  &kp FSLH  &none
+                               &mt LEFT_CONTROL ESCAPE  &kp LEFT_COMMAND      &lt 1 SPACE  &lt 2 BACKSPACE  &kp ENTER             &kp TAB
             >;
         };
 
